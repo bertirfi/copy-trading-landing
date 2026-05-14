@@ -7,7 +7,7 @@ export function WhatsAppButton() {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-7 right-7 z-[90] w-[60px] h-[60px] rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all hover:scale-110 hover:shadow-[0_6px_28px_rgba(37,211,102,0.5)]"
+      className="fixed bottom-5 right-5 sm:bottom-7 sm:right-7 z-[90] w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#25D366] flex items-center justify-center shadow-[0_4px_20px_rgba(37,211,102,0.4)] transition-all hover:scale-110 hover:shadow-[0_6px_28px_rgba(37,211,102,0.5)]"
       aria-label="Contact on WhatsApp"
     >
       <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
@@ -19,9 +19,9 @@ export function WhatsAppButton() {
 
 export function SiteFooter() {
   return (
-    <footer className="py-10 bg-secondary border-t border-border">
-      <div className="max-w-[1160px] mx-auto px-6">
-        <p className="text-xs text-gray-400 leading-[1.7] max-w-[700px] mx-auto text-center">
+    <footer className="py-8 sm:py-10 bg-secondary border-t border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-2xl mx-auto text-center">
           <strong className="text-gray-300">Risk Disclaimer:</strong> Trading
           foreign exchange and CFDs involves significant risk and may not be
           suitable for all investors. Past performance is not indicative of
@@ -30,8 +30,8 @@ export function SiteFooter() {
           exists that you could sustain a loss of some or all of your initial
           investment. Do not invest money you cannot afford to lose.
         </p>
-        <div className="text-center mt-6 text-xs text-gray-500">
-          © {new Date().getFullYear()} · All rights reserved
+        <div className="text-center mt-5 text-xs text-gray-500">
+          {new Date().getFullYear()} - All rights reserved
         </div>
       </div>
     </footer>

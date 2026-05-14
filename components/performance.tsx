@@ -36,38 +36,39 @@ export function Performance() {
   return (
     <section
       id="performance"
-      className="py-24 max-sm:py-16 bg-secondary fade-in"
+      className="py-16 sm:py-20 lg:py-24 bg-secondary fade-in"
       ref={ref}
     >
-      <div className="max-w-[1160px] mx-auto px-6">
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/[0.08] border border-primary/[0.18] text-primary text-xs font-bold tracking-[0.08em] font-heading">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-14">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wider font-heading">
             VERIFIED RESULTS
           </span>
-          <h2 className="font-heading text-[40px] max-sm:text-[30px] font-bold tracking-[-0.025em] leading-[1.15] mt-4">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mt-5 text-balance">
             2+ Years of Proven Performance
           </h2>
-          <p className="text-gray-300 text-[17px] leading-relaxed mt-3 max-w-[580px] mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed mt-4 max-w-xl mx-auto text-pretty">
             Independently verified on MyFXBook. Real USD account. Real profits.
             Real withdrawals.
           </p>
         </div>
 
-        <div className="grid grid-cols-[320px_1fr] max-md:grid-cols-1 gap-8 items-start">
-          <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-6 lg:gap-8 items-start">
+          {/* Stats Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 order-2 lg:order-1">
             <div className="bg-card border border-border rounded-xl p-5">
-              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-[0.04em]">
+              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">
                 ROI
               </div>
-              <div className="font-heading text-[28px] font-bold text-primary">
+              <div className="font-heading text-2xl sm:text-3xl font-bold text-primary">
                 +89.72%
               </div>
             </div>
             <div className="bg-card border border-border rounded-xl p-5">
-              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-[0.04em]">
+              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">
                 Win Rate
               </div>
-              <div className="font-heading text-[28px] font-bold">87.02%</div>
+              <div className="font-heading text-2xl sm:text-3xl font-bold">87.02%</div>
               <div className="flex h-2 rounded overflow-hidden mt-2.5">
                 <div className="bg-success" style={{ width: "87%" }}></div>
                 <div className="bg-destructive" style={{ width: "13%" }}></div>
@@ -78,24 +79,25 @@ export function Performance() {
               </div>
             </div>
             <div className="bg-card border border-border rounded-xl p-5">
-              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-[0.04em]">
+              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">
                 Max Drawdown
               </div>
-              <div className="font-heading text-[28px] font-bold text-[#5CC4FF]">
+              <div className="font-heading text-2xl sm:text-3xl font-bold text-[#5CC4FF]">
                 0.86%
               </div>
               <div className="text-xs text-gray-400 mt-1">Extremely low risk</div>
             </div>
             <div className="bg-card border border-border rounded-xl p-5">
-              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-[0.04em]">
+              <div className="text-xs text-gray-400 font-medium mb-1 uppercase tracking-wider">
                 Verified Balance
               </div>
-              <div className="font-heading text-[28px] font-bold">$132,700</div>
+              <div className="font-heading text-2xl sm:text-3xl font-bold">$132,700</div>
             </div>
           </div>
 
-          <div className="bg-card border border-border rounded-[14px] p-6 max-md:order-[-1]">
-            <div className="text-[13px] font-semibold text-gray-300 mb-3 font-heading">
+          {/* Chart */}
+          <div className="bg-card border border-border rounded-2xl p-4 sm:p-6 order-1 lg:order-2">
+            <div className="text-xs sm:text-sm font-semibold text-gray-300 mb-3 font-heading">
               GROWTH CHART — Nov 2024 to May 2026
             </div>
             <svg viewBox={`0 0 ${W} ${H}`} className="w-full block">
@@ -158,15 +160,15 @@ export function Performance() {
           </div>
         </div>
 
-        <div className="mt-12">
-          <div className="text-[13px] font-semibold text-gray-300 mb-4 font-heading text-center">
+        <div className="mt-10 sm:mt-14">
+          <div className="text-xs sm:text-sm font-semibold text-gray-300 mb-4 font-heading text-center">
             LIVE MT5 TRADE RESULTS
           </div>
           <div className="flex gap-4 overflow-x-auto pb-3 scroll-snap-x-mandatory proof-scroll">
             {proofImages.map((src, i) => (
               <div
                 key={i}
-                className="flex-shrink-0 w-[220px] scroll-snap-start rounded-[14px] overflow-hidden border border-border bg-black"
+                className="flex-shrink-0 w-48 sm:w-56 scroll-snap-start rounded-2xl overflow-hidden border border-border bg-black"
               >
                 <Image
                   src={src}

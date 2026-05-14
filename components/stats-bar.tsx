@@ -20,19 +20,19 @@ export function StatsBar() {
   ];
 
   return (
-    <section className="relative z-[2] -mt-5">
-      <div className="max-w-[1160px] mx-auto px-6">
-        <div className="grid grid-cols-4 max-sm:grid-cols-2 gap-px bg-border rounded-[14px] overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+    <section className="relative z-10 -mt-4 sm:-mt-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-border rounded-2xl overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
           {stats.map((s, i) => (
             <div
               key={i}
-              className="bg-card py-7 px-6 max-sm:py-5 max-sm:px-4 text-center"
+              className="bg-card py-6 sm:py-8 px-4 sm:px-6 text-center"
               ref={s.ref}
             >
-              <div className="font-heading text-[28px] max-sm:text-[22px] font-bold text-primary">
+              <div className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-primary">
                 {s.value}
               </div>
-              <div className="text-[13px] text-gray-300 mt-1 font-medium">
+              <div className="text-xs sm:text-sm text-gray-300 mt-1.5 font-medium">
                 {s.label}
               </div>
             </div>

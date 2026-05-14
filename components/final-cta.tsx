@@ -4,20 +4,20 @@ import { openCalendly } from "@/lib/utils";
 
 export function FinalCTA() {
   return (
-    <section className="py-[100px] bg-[linear-gradient(180deg,var(--color-background)_0%,rgba(36,175,255,0.04)_50%,var(--color-background)_100%)] border-t border-b border-border">
-      <div className="max-w-[1160px] mx-auto px-6 text-center">
-        <h2 className="font-heading text-[44px] max-sm:text-[28px] font-bold tracking-[-0.025em] leading-[1.15] max-w-[600px] mx-auto">
+    <section className="py-20 sm:py-24 lg:py-28 bg-[linear-gradient(180deg,var(--color-background)_0%,rgba(36,175,255,0.04)_50%,var(--color-background)_100%)] border-t border-b border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight max-w-2xl mx-auto text-balance">
           Ready to Let Your Money{" "}
           <span className="text-primary">Work for You</span>?
         </h2>
-        <p className="text-gray-300 text-[17px] leading-relaxed mt-5 max-w-[540px] mx-auto">
+        <p className="text-gray-300 text-base sm:text-lg leading-relaxed mt-5 max-w-xl mx-auto text-pretty">
           {"Stop watching from the sidelines. We'll personally walk you through the setup and have you earning within 24 hours."}
         </p>
-        <div className="mt-9 flex gap-4 justify-center flex-wrap">
+        <div className="mt-10">
           <a
             href="#"
             onClick={openCalendly}
-            className="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-dark text-white font-heading font-bold text-lg px-10 py-5 max-sm:px-7 max-sm:py-4 max-sm:text-base rounded-[10px] border-none cursor-pointer no-underline transition-all hover:from-[#5CC4FF] hover:to-primary hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(36,175,255,0.25)]"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-dark text-white font-heading font-bold text-lg sm:text-xl px-10 sm:px-12 py-5 sm:py-6 rounded-xl cursor-pointer transition-all hover:from-[#5CC4FF] hover:to-primary hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(36,175,255,0.3)] w-full sm:w-auto"
           >
             Book Your Free Call Now
             <svg
@@ -34,8 +34,8 @@ export function FinalCTA() {
             </svg>
           </a>
         </div>
-        <p className="mt-5 text-[13px] text-gray-400">
-          Free consultation · No obligation · We guide you every step of the way
+        <p className="mt-5 text-sm text-gray-400">
+          Free consultation - No obligation - We guide you every step of the way
         </p>
       </div>
     </section>

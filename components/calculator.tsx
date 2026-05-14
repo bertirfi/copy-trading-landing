@@ -101,33 +101,34 @@ export function CompoundCalculator() {
   const progress = (slider / 1000) * 100;
 
   return (
-    <section id="calculator" className="py-24 max-sm:py-16 bg-secondary">
-      <div className="max-w-[1160px] mx-auto px-6">
-        <div className="text-center mb-12">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/[0.08] border border-primary/[0.18] text-primary text-xs font-bold tracking-[0.08em] font-heading">
+    <section id="calculator" className="py-16 sm:py-20 lg:py-24 bg-secondary">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-14">
+          <span className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-wider font-heading">
             COMPOUND GROWTH
           </span>
-          <h2 className="font-heading text-[40px] max-sm:text-[30px] font-bold tracking-[-0.025em] leading-[1.15] mt-4">
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight mt-5 text-balance">
             See What Your Money Could Become
           </h2>
-          <p className="text-gray-300 text-[17px] leading-relaxed mt-3 max-w-[560px] mx-auto">
+          <p className="text-gray-300 text-base sm:text-lg leading-relaxed mt-4 max-w-xl mx-auto text-pretty">
             Enter your starting deposit. Watch 18% monthly compounding turn
             modest savings into life-changing wealth.
           </p>
         </div>
 
-        <div className="max-w-[560px] mx-auto mb-10">
-          <div className="flex items-center justify-between mb-4">
-            <label className="font-heading font-semibold text-[15px] text-gray-200">
+        {/* Deposit Input */}
+        <div className="max-w-xl mx-auto mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
+            <label className="font-heading font-semibold text-base text-gray-200">
               Starting Deposit
             </label>
-            <div className="flex items-center gap-1.5 bg-card border border-border rounded-[10px] px-4 py-2.5">
+            <div className="flex items-center gap-2 bg-card border border-border rounded-xl px-5 py-3">
               <span className="text-primary font-bold text-xl">$</span>
               <input
                 type="text"
                 value={inputVal}
                 onChange={handleInput}
-                className="bg-transparent border-none outline-none text-white font-heading text-[22px] font-bold w-[140px] text-right"
+                className="bg-transparent border-none outline-none text-white font-heading text-2xl font-bold w-32 text-right"
               />
             </div>
           </div>
@@ -141,19 +142,19 @@ export function CompoundCalculator() {
               className="calc-slider"
               style={{ "--progress": progress + "%" } as React.CSSProperties}
             />
-            <div className="flex justify-between text-[13px] text-gray-400 mt-1">
+            <div className="flex justify-between text-sm text-gray-400 mt-2">
               <span>$100</span>
               <span>$100,000</span>
             </div>
           </div>
-          <div className="flex gap-2 mt-4 flex-wrap justify-center max-sm:gap-1.5">
+          <div className="flex gap-2 mt-5 flex-wrap justify-center">
             {PRESETS.map((p) => (
               <button
                 key={p}
                 onClick={() => selectPreset(p)}
-                className={`px-3.5 py-1.5 rounded-md text-[13px] font-semibold bg-card border border-border text-gray-200 cursor-pointer transition-all font-heading max-sm:px-2.5 max-sm:py-1 max-sm:text-xs hover:border-primary hover:text-primary hover:bg-primary/[0.06] ${
+                className={`px-4 py-2 rounded-lg text-sm font-semibold bg-card border border-border text-gray-200 cursor-pointer transition-all font-heading hover:border-primary hover:text-primary hover:bg-primary/5 ${
                   Math.abs(amount - p) < p * 0.05
-                    ? "border-primary text-primary bg-primary/[0.06]"
+                    ? "border-primary text-primary bg-primary/5"
                     : ""
                 }`}
               >
@@ -163,26 +164,28 @@ export function CompoundCalculator() {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 max-md:grid-cols-2 max-sm:grid-cols-2 gap-4 mb-8">
+        {/* Milestone Cards */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {milestones.map((ms, i) => (
             <div
               key={i}
-              className="bg-card border border-border rounded-xl p-5 max-sm:p-4 text-center"
+              className="bg-card border border-border rounded-xl p-4 sm:p-5 text-center"
             >
-              <div className="text-[13px] text-gray-300 mb-1 font-medium">
+              <div className="text-xs sm:text-sm text-gray-300 mb-1 font-medium">
                 {ms.label}
               </div>
-              <div className="text-2xl font-bold font-heading text-primary">
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading text-primary">
                 {fmt(ms.val)}
               </div>
-              <div className="text-xs text-success mt-0.5">
+              <div className="text-xs sm:text-sm text-success mt-1">
                 +{fmtPct(((ms.val - amount) / amount) * 100)} return
               </div>
             </div>
           ))}
         </div>
 
-        <div className="bg-card border border-border rounded-[14px] p-6 mb-6">
+        {/* Chart */}
+        <div className="bg-card border border-border rounded-2xl p-4 sm:p-6 mb-6">
           <svg viewBox={`0 0 ${W} ${H}`} className="w-full block">
             <defs>
               <linearGradient id="calcGrad" x1="0" y1="0" x2="0" y2="1">
@@ -250,20 +253,21 @@ export function CompoundCalculator() {
           </svg>
         </div>
 
-        <div className="overflow-x-auto rounded-[14px] border border-border bg-card">
-          <table className="w-full border-collapse">
+        {/* Table */}
+        <div className="overflow-x-auto rounded-2xl border border-border bg-card">
+          <table className="w-full border-collapse min-w-[400px]">
             <thead>
               <tr>
-                <th className="p-3.5 px-5 text-left text-[11px] uppercase tracking-[0.06em] text-gray-400 font-semibold border-b border-border bg-muted">
+                <th className="p-3 sm:p-4 text-left text-xs uppercase tracking-wider text-gray-400 font-semibold border-b border-border bg-muted">
                   Month
                 </th>
-                <th className="p-3.5 px-5 text-left text-[11px] uppercase tracking-[0.06em] text-gray-400 font-semibold border-b border-border bg-muted">
+                <th className="p-3 sm:p-4 text-left text-xs uppercase tracking-wider text-gray-400 font-semibold border-b border-border bg-muted">
                   Balance
                 </th>
-                <th className="p-3.5 px-5 text-left text-[11px] uppercase tracking-[0.06em] text-gray-400 font-semibold border-b border-border bg-muted">
+                <th className="p-3 sm:p-4 text-left text-xs uppercase tracking-wider text-gray-400 font-semibold border-b border-border bg-muted">
                   Total Profit
                 </th>
-                <th className="p-3.5 px-5 text-left text-[11px] uppercase tracking-[0.06em] text-gray-400 font-semibold border-b border-border bg-muted">
+                <th className="p-3 sm:p-4 text-left text-xs uppercase tracking-wider text-gray-400 font-semibold border-b border-border bg-muted">
                   Return
                 </th>
               </tr>
@@ -274,22 +278,22 @@ export function CompoundCalculator() {
                 return (
                   <tr
                     key={r.month}
-                    className={highlight ? "bg-primary/[0.04]" : ""}
+                    className={highlight ? "bg-primary/5" : ""}
                   >
                     <td
-                      className={`p-3 px-5 text-sm border-b border-border/50 ${
+                      className={`p-3 sm:p-4 text-sm border-b border-border/50 ${
                         highlight ? "font-bold border-primary/10" : ""
                       }`}
                     >
                       {r.month}
                     </td>
-                    <td className="p-3 px-5 text-sm border-b border-border/50 font-heading font-semibold text-white">
+                    <td className="p-3 sm:p-4 text-sm border-b border-border/50 font-heading font-semibold text-white">
                       {fmt(r.balance)}
                     </td>
-                    <td className="p-3 px-5 text-sm border-b border-border/50 text-success font-semibold">
+                    <td className="p-3 sm:p-4 text-sm border-b border-border/50 text-success font-semibold">
                       +{fmt(r.totalProfit)}
                     </td>
-                    <td className="p-3 px-5 text-sm border-b border-border/50 text-primary">
+                    <td className="p-3 sm:p-4 text-sm border-b border-border/50 text-primary">
                       +{fmtPct(r.returnPct)}
                     </td>
                   </tr>
@@ -299,11 +303,12 @@ export function CompoundCalculator() {
           </table>
         </div>
 
-        <div className="text-center mt-10">
+        {/* CTA */}
+        <div className="text-center mt-12 sm:mt-16">
           <a
             href="#"
             onClick={openCalendly}
-            className="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-dark text-white font-heading font-bold text-base px-8 py-4 rounded-lg border-none cursor-pointer no-underline transition-all hover:from-[#5CC4FF] hover:to-primary hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(36,175,255,0.25)]"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-br from-primary to-primary-dark text-white font-heading font-bold text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-5 rounded-xl cursor-pointer transition-all hover:from-[#5CC4FF] hover:to-primary hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(36,175,255,0.3)] w-full sm:w-auto"
           >
             Book a Call — Start Compounding Now
             <svg
@@ -320,7 +325,7 @@ export function CompoundCalculator() {
               <path d="m12 5 7 7-7 7" />
             </svg>
           </a>
-          <p className="mt-3 text-[13px] text-gray-400">
+          <p className="mt-4 text-sm text-gray-400">
             {"We'll help you set up your account and connect to the strategy — completely free."}
           </p>
         </div>
