@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #070710;
+  --color-foreground: #ffffff;
+  --color-card: #161628;
+  --color-card-foreground: #ffffff;
+  --color-primary: #24AFFF;
+  --color-primary-foreground: #ffffff;
+  --color-primary-dark: #1B8FD4;
+  --color-secondary: #0C0C18;
+  --color-secondary-foreground: #E8E8F0;
+  --color-muted: #12121F;
+  --color-muted-foreground: #8888A8;
+  --color-accent: #24AFFF;
+  --color-accent-foreground: #ffffff;
+  --color-border: #1F1F35;
+  --color-border-light: #2A2A45;
+  --color-success: #22C55E;
+  --color-destructive: #EF4444;
+  --color-gray-100: #E8E8F0;
+  --color-gray-200: #BBBBD0;
+  --color-gray-300: #8888A8;
+  --color-gray-400: #5A5A78;
+  --color-gray-500: #3A3A55;
+  --font-sans: "DM Sans", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --radius: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* Scrollbar styles */
+.proof-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.proof-scroll::-webkit-scrollbar-track {
+  background: var(--color-muted);
+  border-radius: 4px;
+}
+
+.proof-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-gray-500);
+  border-radius: 4px;
+}
+
+/* Slider styles */
+input[type="range"].calc-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+  background: linear-gradient(to right, var(--color-primary) 0%, var(--color-primary) var(--progress, 50%), var(--color-border) var(--progress, 50%), var(--color-border) 100%);
+}
+
+input[type="range"].calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 3px solid var(--color-background);
+  box-shadow: 0 0 12px rgba(36, 175, 255, 0.35);
+}
+
+input[type="range"].calc-slider::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  cursor: pointer;
+  border: 3px solid var(--color-background);
+}
+
+/* Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
