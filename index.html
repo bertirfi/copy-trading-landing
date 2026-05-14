@@ -1152,6 +1152,25 @@ function TestimonialsSection() {
 // BOOKING SECTION (inline Calendly)
 // ================================================
 function BookingSection() {
+  const widgetRef = useRef(null);
+
+  useEffect(() => {
+    const CALENDLY_URL = 'https://calendly.com/bertisanoflow/copy-trading-intro?hide_event_type_details=1&hide_gdpr_banner=1';
+    let attempts = 0;
+    const tryInit = () => {
+      if (window.Calendly && widgetRef.current) {
+        window.Calendly.initInlineWidget({
+          url: CALENDLY_URL,
+          parentElement: widgetRef.current,
+        });
+      } else if (attempts < 30) {
+        attempts++;
+        setTimeout(tryInit, 300);
+      }
+    };
+    tryInit();
+  }, []);
+
   return (
     <section id="book" className="final-cta-section">
       <div className="container">
@@ -1165,11 +1184,7 @@ function BookingSection() {
           </p>
         </div>
         <div className="calendly-wrap">
-          <div
-            className="calendly-inline-widget"
-            data-url="https://calendly.com/bertisanoflow/copy-trading-intro?hide_event_type_details=1&hide_gdpr_banner=1"
-            style={{ minWidth: '320px', height: '700px' }}
-          ></div>
+          <div ref={widgetRef} style={{ minWidth: '320px', height: '700px' }}></div>
         </div>
       </div>
     </section>
